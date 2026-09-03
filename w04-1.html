@@ -49,13 +49,24 @@ nav.sidebar li.exam { margin-top:12px; margin-left:6px; font-size:.88rem;
   padding-top:18px; border-top:1px solid #e7e3da; font-size:.95rem; }
 .pager a { max-width:46%; }
 .toc-part { margin-top:26px; font-size:1.1rem; }
+button.nav-hide, button.nav-show { cursor:pointer; font:inherit; font-size:.8rem; line-height:1;
+  border:1px solid #d5d9de; border-radius:4px; background:#fff; color:#57606a; padding:5px 9px; }
+button.nav-hide:hover, button.nav-show:hover { border-color:var(--accent); color:var(--accent); }
+button.nav-hide { position:absolute; top:10px; right:10px; }
+button.nav-show { display:none; position:fixed; top:10px; left:10px; z-index:20; }
+nav.sidebar h1 { padding-right:66px; }
+html.nav-collapsed nav.sidebar { display:none; }
+html.nav-collapsed button.nav-show { display:inline-block; }
+html.nav-collapsed main { margin-left:auto; margin-right:auto; }
 @media (max-width: 900px) {
   nav.sidebar { position:static; width:auto; border-right:none; border-bottom:1px solid #e7e3da; }
   main { margin-left:0; padding:24px 20px 60px; }
 }
-</style></head>
+</style>
+<script>try{if(localStorage.getItem('textbook-nav')==='closed')document.documentElement.classList.add('nav-collapsed')}catch(e){}</script></head>
 <body>
-<nav class="sidebar"><h1><a href="index.html">재무행정론</a></h1><ul>
+<button class="nav-show" type="button" title="목차 펼치기">☰ 목차</button>
+<nav class="sidebar"><button class="nav-hide" type="button" title="목차 접기">◀ 접기</button><h1><a href="index.html">재무행정론</a></h1><ul>
 <li class="part">1부. 재정의 기초</li>
 <li class="chap"><a href="w01-1.html"><span class="tag t1">1차시</span>1주차 강의의 문: 재정이란 무엇인가</a></li>
 <li class="chap"><a href="w01-2.html"><span class="tag t2">2차시</span>1주차 배분의 정치경제: 희소성과 선택</a></li>
@@ -247,4 +258,10 @@ nav.sidebar li.exam { margin-top:12px; margin-left:6px; font-size:.88rem;
 <p><strong>4-2. (계산형)</strong> 어느 해 정부의 재정 거래가 다음과 같다(단위: 조 원). 조세수입 300, 세외수입 40, 자본수입 10, 경상·자본 지출 320, 융자지출 60, 융자회수 20, 국채발행 45, 국채상환 35, 사회보장성기금수지 +45. (1) 통합재정 기준의 세입과 세출및순융자를 구하시오. (2) 통합재정수지와 보전재원을 구하고 둘의 관계를 확인하시오. (3) 관리재정수지를 구하고, 통합재정수지와의 차이가 무엇을 뜻하는지 한 문장으로 설명하시오.</p>
 <p><strong>4-3. (해석형)</strong> 2025회계연도 결산에서 통합재정수지 적자는 46.7조 원, 관리재정수지 적자는 104.2조 원이었다. 두 숫자가 모두 "맞는" 이유를 산출 구조의 차이로 설명하고, 국제비교를 할 때와 국내 재정운용 목표를 세울 때 각각 어느 지표가 더 적합한지 논거와 함께 서술하시오.</p>
 <p><strong>4-4. (찬반 토론)</strong> "국민연금 흑자는 어차피 미래에 지급할 돈이므로, 재정건전성 판단에서 사회보장성기금수지를 제외하는 관리재정수지 방식이 옳다"는 주장에 대해, 찬성 논거와 반대 논거(예: 국제 기준과의 비교 가능성, 기금 흑자의 국공채 매입을 통한 재정 기여 등)를 각각 제시하고 자신의 입장을 정하시오.</p><div class="pager"><span><a href="w03-2.html">← 3주차 2차시. 기금과 세입·세출예산</a></span><span><a href="w04-2.html">4주차 2차시. 총지출과 나라살림의 크기 →</a></span></div></main>
+<script>
+(function(){var h=document.documentElement;
+function set(c){h.classList.toggle('nav-collapsed',c);try{localStorage.setItem('textbook-nav',c?'closed':'open')}catch(e){}}
+document.querySelector('.nav-hide').onclick=function(){set(true)};
+document.querySelector('.nav-show').onclick=function(){set(false)};})();
+</script>
 </body></html>

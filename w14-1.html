@@ -49,13 +49,24 @@ nav.sidebar li.exam { margin-top:12px; margin-left:6px; font-size:.88rem;
   padding-top:18px; border-top:1px solid #e7e3da; font-size:.95rem; }
 .pager a { max-width:46%; }
 .toc-part { margin-top:26px; font-size:1.1rem; }
+button.nav-hide, button.nav-show { cursor:pointer; font:inherit; font-size:.8rem; line-height:1;
+  border:1px solid #d5d9de; border-radius:4px; background:#fff; color:#57606a; padding:5px 9px; }
+button.nav-hide:hover, button.nav-show:hover { border-color:var(--accent); color:var(--accent); }
+button.nav-hide { position:absolute; top:10px; right:10px; }
+button.nav-show { display:none; position:fixed; top:10px; left:10px; z-index:20; }
+nav.sidebar h1 { padding-right:66px; }
+html.nav-collapsed nav.sidebar { display:none; }
+html.nav-collapsed button.nav-show { display:inline-block; }
+html.nav-collapsed main { margin-left:auto; margin-right:auto; }
 @media (max-width: 900px) {
   nav.sidebar { position:static; width:auto; border-right:none; border-bottom:1px solid #e7e3da; }
   main { margin-left:0; padding:24px 20px 60px; }
 }
-</style></head>
+</style>
+<script>try{if(localStorage.getItem('textbook-nav')==='closed')document.documentElement.classList.add('nav-collapsed')}catch(e){}</script></head>
 <body>
-<nav class="sidebar"><h1><a href="index.html">재무행정론</a></h1><ul>
+<button class="nav-show" type="button" title="목차 펼치기">☰ 목차</button>
+<nav class="sidebar"><button class="nav-hide" type="button" title="목차 접기">◀ 접기</button><h1><a href="index.html">재무행정론</a></h1><ul>
 <li class="part">1부. 재정의 기초</li>
 <li class="chap"><a href="w01-1.html"><span class="tag t1">1차시</span>1주차 강의의 문: 재정이란 무엇인가</a></li>
 <li class="chap"><a href="w01-2.html"><span class="tag t2">2차시</span>1주차 배분의 정치경제: 희소성과 선택</a></li>
@@ -327,4 +338,10 @@ nav.sidebar li.exam { margin-top:12px; margin-left:6px; font-size:.88rem;
 <p><strong>14-2. (서술형 연습)</strong> 2026년 예비타당성조사제도에 일어난 변화를 (1) 대상사업의 법정 기준, (2) R&amp;D 사업, (3) SOC 사업의 세 측면으로 나누어 서술하되, 각 변화의 법적 지위(법률 개정인지, 정부 개편방안인지, 현행 유지인지)를 명확히 구분하시오. 이어서 R&amp;D 예타 폐지에 대한 찬성 논거와 우려 논거를 각각 두 가지 이상 제시하시오.</p>
 <p><strong>14-3. (찬반 토론)</strong> "지역균형발전을 위한 예비타당성조사 면제는 확대되어야 한다"는 주장에 대해 찬성과 반대 논거를 각각 제시하고 자신의 입장을 정하시오. 찬성 측은 경제성 잣대의 구조적 수도권 편향과 균형발전의 가치를, 반대 측은 2019년 국가균형발전 프로젝트 사례와 제도 무력화·재정건전성 우려를 논거로 활용하고, 면제 대신 가중치 조정으로 같은 목적을 달성할 수 있는지도 검토하시오.</p>
 <p><strong>14-4. (응용형)</strong> 예비타당성조사를 우회하거나 무력화하는 경로로 (1) 면제요건의 활용, (2) 총사업비를 기준 미달로 낮추는 사업 분할·규모 축소, (3) 통과 후 증액·재확장의 세 가지를 들 수 있다. 7호선 연장(도봉산-옥정) 사례가 어느 경로에 해당하는지 설명하고, 각 경로를 막기 위한 제도적 장치(사업계획 적정성 검토, 총사업비 관리, 타당성재조사 등)가 어떤 논리로 설계되어야 하는지 논하시오.</p><div class="pager"><span><a href="w13-2.html">← 13주차 2차시. 비용편익분석</a></span><span><a href="w14-2.html">14주차 2차시. 재정평가론: 재정성과관리와 정부업무평가 →</a></span></div></main>
+<script>
+(function(){var h=document.documentElement;
+function set(c){h.classList.toggle('nav-collapsed',c);try{localStorage.setItem('textbook-nav',c?'closed':'open')}catch(e){}}
+document.querySelector('.nav-hide').onclick=function(){set(true)};
+document.querySelector('.nav-show').onclick=function(){set(false)};})();
+</script>
 </body></html>

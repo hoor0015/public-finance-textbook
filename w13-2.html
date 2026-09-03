@@ -49,13 +49,24 @@ nav.sidebar li.exam { margin-top:12px; margin-left:6px; font-size:.88rem;
   padding-top:18px; border-top:1px solid #e7e3da; font-size:.95rem; }
 .pager a { max-width:46%; }
 .toc-part { margin-top:26px; font-size:1.1rem; }
+button.nav-hide, button.nav-show { cursor:pointer; font:inherit; font-size:.8rem; line-height:1;
+  border:1px solid #d5d9de; border-radius:4px; background:#fff; color:#57606a; padding:5px 9px; }
+button.nav-hide:hover, button.nav-show:hover { border-color:var(--accent); color:var(--accent); }
+button.nav-hide { position:absolute; top:10px; right:10px; }
+button.nav-show { display:none; position:fixed; top:10px; left:10px; z-index:20; }
+nav.sidebar h1 { padding-right:66px; }
+html.nav-collapsed nav.sidebar { display:none; }
+html.nav-collapsed button.nav-show { display:inline-block; }
+html.nav-collapsed main { margin-left:auto; margin-right:auto; }
 @media (max-width: 900px) {
   nav.sidebar { position:static; width:auto; border-right:none; border-bottom:1px solid #e7e3da; }
   main { margin-left:0; padding:24px 20px 60px; }
 }
-</style></head>
+</style>
+<script>try{if(localStorage.getItem('textbook-nav')==='closed')document.documentElement.classList.add('nav-collapsed')}catch(e){}</script></head>
 <body>
-<nav class="sidebar"><h1><a href="index.html">재무행정론</a></h1><ul>
+<button class="nav-show" type="button" title="목차 펼치기">☰ 목차</button>
+<nav class="sidebar"><button class="nav-hide" type="button" title="목차 접기">◀ 접기</button><h1><a href="index.html">재무행정론</a></h1><ul>
 <li class="part">1부. 재정의 기초</li>
 <li class="chap"><a href="w01-1.html"><span class="tag t1">1차시</span>1주차 강의의 문: 재정이란 무엇인가</a></li>
 <li class="chap"><a href="w01-2.html"><span class="tag t2">2차시</span>1주차 배분의 정치경제: 희소성과 선택</a></li>
@@ -445,4 +456,10 @@ nav.sidebar li.exam { margin-top:12px; margin-left:6px; font-size:.88rem;
 <p><strong>13-6. (서술형 연습)</strong> 비용편익분석에서 실질적 편익과 금전적 편익의 구분을 정의하고, "도로 건설로 인한 주변 땅값 상승을 편익에 포함해야 한다"는 주장이 왜 이중계산의 오류를 낳는지 설명하시오. 이어서 무형적 편익(예: 생명·안전)을 분석에서 제외했을 때 생기는 문제를 논하고, 통계적 생명가치와 조건부가치측정법이 이 문제에 어떻게 답하는지 서술하시오.</p>
 <p><strong>13-7. (해석형)</strong> 2.5절의 고속도로 사례에서 할인율이 4%일 때와 6%일 때 타당성 판정이 뒤집힌 이유를 비용과 편익의 발생 시점 차이와 연결해 설명하시오. 그리고 2017년 한국이 사회적 할인율을 5.5%에서 4.5%로 인하한 결정이 어떤 유형의 사업에 유리하게 작용하는지, 세대 간 형평의 관점에서 이 인하를 지지하거나 비판하는 논거를 각각 제시하시오.</p>
 <p><strong>13-8. (토론)</strong> "B/C가 1.3인 500억 원짜리 사업과 B/C가 1.1인 5,000억 원짜리 사업 중 하나만 추진할 수 있다면 어느 쪽을 골라야 하는가"라는 물음에 대해, NPV 기준과 B/C 기준이 각각 어떤 답을 내는지 계산해 보이고(편익의 현재가치는 각각 650억 원과 5,500억 원으로 가정), 재원 제약과 사업 목적을 고려할 때 어떤 기준을 우선해야 하는지 자신의 입장을 논하시오.</p><div class="pager"><span><a href="w13-1.html">← 13주차 1차시. 재정개혁론: 예산제도 개혁의 역사</a></span><span><a href="w14-1.html">14주차 1차시. 예비타당성조사제도 →</a></span></div></main>
+<script>
+(function(){var h=document.documentElement;
+function set(c){h.classList.toggle('nav-collapsed',c);try{localStorage.setItem('textbook-nav',c?'closed':'open')}catch(e){}}
+document.querySelector('.nav-hide').onclick=function(){set(true)};
+document.querySelector('.nav-show').onclick=function(){set(false)};})();
+</script>
 </body></html>

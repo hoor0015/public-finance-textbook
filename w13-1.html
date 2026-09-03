@@ -49,13 +49,24 @@ nav.sidebar li.exam { margin-top:12px; margin-left:6px; font-size:.88rem;
   padding-top:18px; border-top:1px solid #e7e3da; font-size:.95rem; }
 .pager a { max-width:46%; }
 .toc-part { margin-top:26px; font-size:1.1rem; }
+button.nav-hide, button.nav-show { cursor:pointer; font:inherit; font-size:.8rem; line-height:1;
+  border:1px solid #d5d9de; border-radius:4px; background:#fff; color:#57606a; padding:5px 9px; }
+button.nav-hide:hover, button.nav-show:hover { border-color:var(--accent); color:var(--accent); }
+button.nav-hide { position:absolute; top:10px; right:10px; }
+button.nav-show { display:none; position:fixed; top:10px; left:10px; z-index:20; }
+nav.sidebar h1 { padding-right:66px; }
+html.nav-collapsed nav.sidebar { display:none; }
+html.nav-collapsed button.nav-show { display:inline-block; }
+html.nav-collapsed main { margin-left:auto; margin-right:auto; }
 @media (max-width: 900px) {
   nav.sidebar { position:static; width:auto; border-right:none; border-bottom:1px solid #e7e3da; }
   main { margin-left:0; padding:24px 20px 60px; }
 }
-</style></head>
+</style>
+<script>try{if(localStorage.getItem('textbook-nav')==='closed')document.documentElement.classList.add('nav-collapsed')}catch(e){}</script></head>
 <body>
-<nav class="sidebar"><h1><a href="index.html">재무행정론</a></h1><ul>
+<button class="nav-show" type="button" title="목차 펼치기">☰ 목차</button>
+<nav class="sidebar"><button class="nav-hide" type="button" title="목차 접기">◀ 접기</button><h1><a href="index.html">재무행정론</a></h1><ul>
 <li class="part">1부. 재정의 기초</li>
 <li class="chap"><a href="w01-1.html"><span class="tag t1">1차시</span>1주차 강의의 문: 재정이란 무엇인가</a></li>
 <li class="chap"><a href="w01-2.html"><span class="tag t2">2차시</span>1주차 배분의 정치경제: 희소성과 선택</a></li>
@@ -272,4 +283,10 @@ nav.sidebar li.exam { margin-top:12px; margin-left:6px; font-size:.88rem;
 <p><strong>13-2. (적용형)</strong> 여러분이 사는 지방자치단체의 사업 하나(예: 도서관 운영, 도로 보수, 방역)를 골라 성과주의 예산제도 방식으로 편성해 보시오. 업무단위를 정의하고, 그 업무단위가 다섯 가지 선정 기준(동질성, 계산가능성, 영속성, 단수성, 이해용이성)을 충족하는지 검토한 뒤, 가상의 단위원가와 업무량으로 예산액을 산출하시오. 이 과정에서 드러나는 성과주의 예산제도의 한계도 함께 지적하시오.</p>
 <p><strong>13-3. (해석형)</strong> 영기준 예산제도가 "영기준이 아니라 90% 기준 예산"이라는 비판을 받은 이유를 증액대안 패키지의 구조(최저수준·현행수준·증액수준)와 연결해 설명하고, 이 비판이 12주차에서 배운 점증주의의 어떤 주장을 뒷받침하는지 논하시오.</p>
 <p><strong>13-4. (연결형)</strong> 한국의 프로그램 예산제도(5주차)와 국가재정운용계획에서 이 장에서 배운 네 예산제도의 요소를 각각 찾아 제시하시오. 예를 들어 편성 비목, 단위사업의 성과지표, 프로그램 구조와 다년도 계획이 각각 어느 제도의 유산인지 밝히고, 그 근거를 서술하시오.</p><div class="pager"><span><a href="w12-2.html">← 12주차 2차시. 예산이론 (2): 다중합리성 모형과 조직과정 모형</a></span><span><a href="w13-2.html">13주차 2차시. 비용편익분석 →</a></span></div></main>
+<script>
+(function(){var h=document.documentElement;
+function set(c){h.classList.toggle('nav-collapsed',c);try{localStorage.setItem('textbook-nav',c?'closed':'open')}catch(e){}}
+document.querySelector('.nav-hide').onclick=function(){set(true)};
+document.querySelector('.nav-show').onclick=function(){set(false)};})();
+</script>
 </body></html>

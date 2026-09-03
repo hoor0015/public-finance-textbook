@@ -49,13 +49,24 @@ nav.sidebar li.exam { margin-top:12px; margin-left:6px; font-size:.88rem;
   padding-top:18px; border-top:1px solid #e7e3da; font-size:.95rem; }
 .pager a { max-width:46%; }
 .toc-part { margin-top:26px; font-size:1.1rem; }
+button.nav-hide, button.nav-show { cursor:pointer; font:inherit; font-size:.8rem; line-height:1;
+  border:1px solid #d5d9de; border-radius:4px; background:#fff; color:#57606a; padding:5px 9px; }
+button.nav-hide:hover, button.nav-show:hover { border-color:var(--accent); color:var(--accent); }
+button.nav-hide { position:absolute; top:10px; right:10px; }
+button.nav-show { display:none; position:fixed; top:10px; left:10px; z-index:20; }
+nav.sidebar h1 { padding-right:66px; }
+html.nav-collapsed nav.sidebar { display:none; }
+html.nav-collapsed button.nav-show { display:inline-block; }
+html.nav-collapsed main { margin-left:auto; margin-right:auto; }
 @media (max-width: 900px) {
   nav.sidebar { position:static; width:auto; border-right:none; border-bottom:1px solid #e7e3da; }
   main { margin-left:0; padding:24px 20px 60px; }
 }
-</style></head>
+</style>
+<script>try{if(localStorage.getItem('textbook-nav')==='closed')document.documentElement.classList.add('nav-collapsed')}catch(e){}</script></head>
 <body>
-<nav class="sidebar"><h1><a href="index.html">재무행정론</a></h1><ul>
+<button class="nav-show" type="button" title="목차 펼치기">☰ 목차</button>
+<nav class="sidebar"><button class="nav-hide" type="button" title="목차 접기">◀ 접기</button><h1><a href="index.html">재무행정론</a></h1><ul>
 <li class="part">1부. 재정의 기초</li>
 <li class="chap"><a href="w01-1.html"><span class="tag t1">1차시</span>1주차 강의의 문: 재정이란 무엇인가</a></li>
 <li class="chap"><a href="w01-2.html"><span class="tag t2">2차시</span>1주차 배분의 정치경제: 희소성과 선택</a></li>
@@ -180,4 +191,10 @@ nav.sidebar li.exam { margin-top:12px; margin-left:6px; font-size:.88rem;
 <p><strong>3-2. (조문 적용형)</strong> 어느 중앙관서가 특정 산업 지원을 위해 "OO산업육성특별회계"의 신설을 추진한다고 하자. 이 특별회계가 실제로 설치되기까지 필요한 법적 절차를 국가재정법 제4조 제3항과 제14조에 근거해 순서대로 서술하고, 반대 측이 국가재정법 제15조의 통폐합 기준을 들어 제기할 수 있는 반론을 두 가지 이상 구성하시오.</p>
 <p><strong>3-3. (해석형)</strong> 2026년 예산 기준 총지출에서 일반회계·특별회계·기금이 차지하는 비중은 각각 52.9%, 13.2%, 33.9%이고, 일반회계 비중은 2017년 55.5%에서 낮아져 왔다. 이 수치가 예산 단일성·통일성 원칙의 관점에서 무엇을 의미하는지 해석하고, "재정의 절반 가까이가 일반회계 밖에 있다"는 사실이 재정 운용의 투명성과 배분의 유연성에 각각 어떤 영향을 미칠지 논하시오.</p>
 <p><strong>3-4. (찬반 토론)</strong> 2026년 지역균형발전특별회계는 전년 대비 55.8% 증액된 22.9조 원으로 편성되었다. "국가적 우선순위 사업의 재원은 특별회계로 묶어 안정적으로 보장하는 것이 바람직하다"는 주장에 대해, 안정적 재원 보장의 이점과 칸막이 재정의 폐해를 논거로 찬성과 반대 입장을 각각 구성하고 자신의 입장을 정하시오.</p><div class="pager"><span><a href="w02-2.html">← 2주차 2차시. 재정운영의 규범과 예산의 원칙</a></span><span><a href="w03-2.html">3주차 2차시. 기금과 세입·세출예산 →</a></span></div></main>
+<script>
+(function(){var h=document.documentElement;
+function set(c){h.classList.toggle('nav-collapsed',c);try{localStorage.setItem('textbook-nav',c?'closed':'open')}catch(e){}}
+document.querySelector('.nav-hide').onclick=function(){set(true)};
+document.querySelector('.nav-show').onclick=function(){set(false)};})();
+</script>
 </body></html>

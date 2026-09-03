@@ -49,13 +49,24 @@ nav.sidebar li.exam { margin-top:12px; margin-left:6px; font-size:.88rem;
   padding-top:18px; border-top:1px solid #e7e3da; font-size:.95rem; }
 .pager a { max-width:46%; }
 .toc-part { margin-top:26px; font-size:1.1rem; }
+button.nav-hide, button.nav-show { cursor:pointer; font:inherit; font-size:.8rem; line-height:1;
+  border:1px solid #d5d9de; border-radius:4px; background:#fff; color:#57606a; padding:5px 9px; }
+button.nav-hide:hover, button.nav-show:hover { border-color:var(--accent); color:var(--accent); }
+button.nav-hide { position:absolute; top:10px; right:10px; }
+button.nav-show { display:none; position:fixed; top:10px; left:10px; z-index:20; }
+nav.sidebar h1 { padding-right:66px; }
+html.nav-collapsed nav.sidebar { display:none; }
+html.nav-collapsed button.nav-show { display:inline-block; }
+html.nav-collapsed main { margin-left:auto; margin-right:auto; }
 @media (max-width: 900px) {
   nav.sidebar { position:static; width:auto; border-right:none; border-bottom:1px solid #e7e3da; }
   main { margin-left:0; padding:24px 20px 60px; }
 }
-</style></head>
+</style>
+<script>try{if(localStorage.getItem('textbook-nav')==='closed')document.documentElement.classList.add('nav-collapsed')}catch(e){}</script></head>
 <body>
-<nav class="sidebar"><h1><a href="index.html">재무행정론</a></h1><ul>
+<button class="nav-show" type="button" title="목차 펼치기">☰ 목차</button>
+<nav class="sidebar"><button class="nav-hide" type="button" title="목차 접기">◀ 접기</button><h1><a href="index.html">재무행정론</a></h1><ul>
 <li class="part">1부. 재정의 기초</li>
 <li class="chap"><a href="w01-1.html"><span class="tag t1">1차시</span>1주차 강의의 문: 재정이란 무엇인가</a></li>
 <li class="chap"><a href="w01-2.html"><span class="tag t2">2차시</span>1주차 배분의 정치경제: 희소성과 선택</a></li>
@@ -255,4 +266,10 @@ nav.sidebar li.exam { margin-top:12px; margin-left:6px; font-size:.88rem;
 <p><strong>10-2. (계산·해석형)</strong> 헌법 제54조 제2항(회계연도 개시 90일 전 제출, 30일 전 의결)과 국가재정법 제33조(120일 전 제출)를 적용하여, 헌법 기준과 법률 기준 각각에서 국회가 예산안 심의에 쓸 수 있는 기간이 며칠인지 계산하시오. 2013년 국가재정법 개정으로 심의 기간이 며칠 늘어났는지 밝히고, 제출 기한을 법률로 앞당긴 것이 헌법 위반이 아닌 이유를 설명하시오.</p>
 <p><strong>10-3. (찬반 토론)</strong> "총액배분 자율편성제도는 부처의 자율성을 확대했다기보다 중앙예산기관의 통제를 정교화한 제도다"라는 주장에 대해 찬성과 반대의 논거를 각각 제시하고 자신의 입장을 정하시오. 제도의 기대효과(정보 비대칭 완화, 전략적 배분)와 한계(신규사업 관여, 한도 준수 미흡, 한도 결정 단위의 세분화)를 논거로 활용하시오.</p>
 <p><strong>10-4.</strong> 국가재정운용계획은 국회에 제출되지만 심의·의결 대상이 아니어서 법적 구속력이 없다. 이 설계의 장점(재정운용의 신축성)과 단점(중기 규율의 약화)을 각각 설명하고, 9주차에서 본 재정준칙 법제화 논의와 연계하여 중기재정계획에 구속력을 부여하는 방안의 타당성을 논하시오.</p><div class="pager"><span><a href="w09-2.html">← 9주차 2차시. 재정정책과 통화정책</a></span><span><a href="w10-2.html">10주차 2차시. 재정과정론 (2): 예산심의, 집행, 결산 →</a></span></div></main>
+<script>
+(function(){var h=document.documentElement;
+function set(c){h.classList.toggle('nav-collapsed',c);try{localStorage.setItem('textbook-nav',c?'closed':'open')}catch(e){}}
+document.querySelector('.nav-hide').onclick=function(){set(true)};
+document.querySelector('.nav-show').onclick=function(){set(false)};})();
+</script>
 </body></html>

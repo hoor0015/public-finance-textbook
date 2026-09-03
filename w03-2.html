@@ -49,13 +49,24 @@ nav.sidebar li.exam { margin-top:12px; margin-left:6px; font-size:.88rem;
   padding-top:18px; border-top:1px solid #e7e3da; font-size:.95rem; }
 .pager a { max-width:46%; }
 .toc-part { margin-top:26px; font-size:1.1rem; }
+button.nav-hide, button.nav-show { cursor:pointer; font:inherit; font-size:.8rem; line-height:1;
+  border:1px solid #d5d9de; border-radius:4px; background:#fff; color:#57606a; padding:5px 9px; }
+button.nav-hide:hover, button.nav-show:hover { border-color:var(--accent); color:var(--accent); }
+button.nav-hide { position:absolute; top:10px; right:10px; }
+button.nav-show { display:none; position:fixed; top:10px; left:10px; z-index:20; }
+nav.sidebar h1 { padding-right:66px; }
+html.nav-collapsed nav.sidebar { display:none; }
+html.nav-collapsed button.nav-show { display:inline-block; }
+html.nav-collapsed main { margin-left:auto; margin-right:auto; }
 @media (max-width: 900px) {
   nav.sidebar { position:static; width:auto; border-right:none; border-bottom:1px solid #e7e3da; }
   main { margin-left:0; padding:24px 20px 60px; }
 }
-</style></head>
+</style>
+<script>try{if(localStorage.getItem('textbook-nav')==='closed')document.documentElement.classList.add('nav-collapsed')}catch(e){}</script></head>
 <body>
-<nav class="sidebar"><h1><a href="index.html">재무행정론</a></h1><ul>
+<button class="nav-show" type="button" title="목차 펼치기">☰ 목차</button>
+<nav class="sidebar"><button class="nav-hide" type="button" title="목차 접기">◀ 접기</button><h1><a href="index.html">재무행정론</a></h1><ul>
 <li class="part">1부. 재정의 기초</li>
 <li class="chap"><a href="w01-1.html"><span class="tag t1">1차시</span>1주차 강의의 문: 재정이란 무엇인가</a></li>
 <li class="chap"><a href="w01-2.html"><span class="tag t2">2차시</span>1주차 배분의 정치경제: 희소성과 선택</a></li>
@@ -242,4 +253,10 @@ nav.sidebar li.exam { margin-top:12px; margin-left:6px; font-size:.88rem;
 <p><strong>3-6. (계산·조문 적용형)</strong> 어느 비금융성 기금의 확정된 기금운용계획에서 주요항목 A의 지출금액이 1조 원이라고 하자. 집행 중 수요 증가로 A를 1조 1,500억 원으로 늘리려는 경우와 1조 3,000억 원으로 늘리려는 경우 각각에 대해, 국가재정법 제70조에 따라 어떤 절차가 필요한지 판단하고 그 근거를 제시하시오. 같은 변경 폭이 금융성기금이라면 결론이 어떻게 달라지는지도 밝히시오.</p>
 <p><strong>3-7. (해석형)</strong> "2026년 기금 운용 규모는 990.8조 원으로 총지출 727.9조 원보다 크다"는 문장은 어떤 점에서 오해를 낳을 수 있는가. 총계 기준과 총지출 기준의 차이, 그리고 총지출 산정에서 외국환평형기금과 금융성기금이 제외되는 이유를 들어 이 문장을 바르게 고쳐 쓰고, 재정 수치를 읽을 때 기준 확인이 왜 중요한지 논하시오.</p>
 <p><strong>3-8. (찬반 토론)</strong> 세입예산에 법적 구속력이 없다는 점을 두고, "세수 추계가 빗나가도 아무 책임이 따르지 않으므로 전망이 낙관 편향된다"는 비판과 "세입은 경제 상황의 함수이므로 구속력을 부여하는 것 자체가 불가능하다"는 반론이 있다. 두 입장의 논거를 각각 정리하고, 세수 추계의 정확성과 책임성을 높이기 위한 제도적 대안을 한 가지 이상 제시하시오.</p><div class="pager"><span><a href="w03-1.html">← 3주차 1차시. 정부재정의 기본구조: 일반회계와 특별회계</a></span><span><a href="w04-1.html">4주차 1차시. 예산의 총계·순계와 통합재정 →</a></span></div></main>
+<script>
+(function(){var h=document.documentElement;
+function set(c){h.classList.toggle('nav-collapsed',c);try{localStorage.setItem('textbook-nav',c?'closed':'open')}catch(e){}}
+document.querySelector('.nav-hide').onclick=function(){set(true)};
+document.querySelector('.nav-show').onclick=function(){set(false)};})();
+</script>
 </body></html>

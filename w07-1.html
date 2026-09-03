@@ -49,13 +49,24 @@ nav.sidebar li.exam { margin-top:12px; margin-left:6px; font-size:.88rem;
   padding-top:18px; border-top:1px solid #e7e3da; font-size:.95rem; }
 .pager a { max-width:46%; }
 .toc-part { margin-top:26px; font-size:1.1rem; }
+button.nav-hide, button.nav-show { cursor:pointer; font:inherit; font-size:.8rem; line-height:1;
+  border:1px solid #d5d9de; border-radius:4px; background:#fff; color:#57606a; padding:5px 9px; }
+button.nav-hide:hover, button.nav-show:hover { border-color:var(--accent); color:var(--accent); }
+button.nav-hide { position:absolute; top:10px; right:10px; }
+button.nav-show { display:none; position:fixed; top:10px; left:10px; z-index:20; }
+nav.sidebar h1 { padding-right:66px; }
+html.nav-collapsed nav.sidebar { display:none; }
+html.nav-collapsed button.nav-show { display:inline-block; }
+html.nav-collapsed main { margin-left:auto; margin-right:auto; }
 @media (max-width: 900px) {
   nav.sidebar { position:static; width:auto; border-right:none; border-bottom:1px solid #e7e3da; }
   main { margin-left:0; padding:24px 20px 60px; }
 }
-</style></head>
+</style>
+<script>try{if(localStorage.getItem('textbook-nav')==='closed')document.documentElement.classList.add('nav-collapsed')}catch(e){}</script></head>
 <body>
-<nav class="sidebar"><h1><a href="index.html">재무행정론</a></h1><ul>
+<button class="nav-show" type="button" title="목차 펼치기">☰ 목차</button>
+<nav class="sidebar"><button class="nav-hide" type="button" title="목차 접기">◀ 접기</button><h1><a href="index.html">재무행정론</a></h1><ul>
 <li class="part">1부. 재정의 기초</li>
 <li class="chap"><a href="w01-1.html"><span class="tag t1">1차시</span>1주차 강의의 문: 재정이란 무엇인가</a></li>
 <li class="chap"><a href="w01-2.html"><span class="tag t2">2차시</span>1주차 배분의 정치경제: 희소성과 선택</a></li>
@@ -222,4 +233,10 @@ nav.sidebar li.exam { margin-top:12px; margin-left:6px; font-size:.88rem;
 <p><strong>7-2. (계산·해석형)</strong> 한계소비성향이 0.8인 경제에서 정부가 재난 복구에 5조 원을 지출할 때, 승수효과에 따른 총수요 증가액을 계산 과정과 함께 구하시오. 이어서 같은 지출을 전액 국채 발행으로 조달할 때 구축효과가 발생한다면 실제 총수요 증가가 계산값보다 작아지는 이유를 설명하고, 구축효과가 약하게 나타나는 경기 조건을 제시하시오.</p>
 <p><strong>7-3.</strong> 2025년 제1회 추경(재해·재난 대응), 2025년 제2회 추경(민생회복 소비쿠폰), 2026년 제1회 추경(고유가 대응)을 국가재정법 제89조제1항의 세 가지 요건에 각각 대응시켜 보고, "발생할 우려가 있는 경우"라는 문구가 재량적 재정정책의 시차 문제 및 남용 우려와 어떻게 연결되는지 논하시오.</p>
 <p><strong>7-4.</strong> 조선업 구조조정으로 실직한 노동자와 경기 침체로 채용이 얼어붙어 취업하지 못한 청년의 실업은 각각 어느 유형에 해당하는가. 두 실업에 대한 재정정책 처방이 어떻게 달라야 하는지 설명하고, AI에 의한 일자리 대체가 확산될 경우 어느 유형의 처방이 더 중요해질지 자신의 견해를 제시하시오.</p><div class="pager"><span><a href="w06-2.html">← 6주차 2차시. 조세지출·성인지 예산과 예산법률주의</a></span><span><a href="w07-2.html">7주차 2차시. 새로운 재정정책 실험: 기본소득, 기본서비스, 기본자산 →</a></span></div></main>
+<script>
+(function(){var h=document.documentElement;
+function set(c){h.classList.toggle('nav-collapsed',c);try{localStorage.setItem('textbook-nav',c?'closed':'open')}catch(e){}}
+document.querySelector('.nav-hide').onclick=function(){set(true)};
+document.querySelector('.nav-show').onclick=function(){set(false)};})();
+</script>
 </body></html>

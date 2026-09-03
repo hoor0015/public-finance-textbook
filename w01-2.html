@@ -49,13 +49,24 @@ nav.sidebar li.exam { margin-top:12px; margin-left:6px; font-size:.88rem;
   padding-top:18px; border-top:1px solid #e7e3da; font-size:.95rem; }
 .pager a { max-width:46%; }
 .toc-part { margin-top:26px; font-size:1.1rem; }
+button.nav-hide, button.nav-show { cursor:pointer; font:inherit; font-size:.8rem; line-height:1;
+  border:1px solid #d5d9de; border-radius:4px; background:#fff; color:#57606a; padding:5px 9px; }
+button.nav-hide:hover, button.nav-show:hover { border-color:var(--accent); color:var(--accent); }
+button.nav-hide { position:absolute; top:10px; right:10px; }
+button.nav-show { display:none; position:fixed; top:10px; left:10px; z-index:20; }
+nav.sidebar h1 { padding-right:66px; }
+html.nav-collapsed nav.sidebar { display:none; }
+html.nav-collapsed button.nav-show { display:inline-block; }
+html.nav-collapsed main { margin-left:auto; margin-right:auto; }
 @media (max-width: 900px) {
   nav.sidebar { position:static; width:auto; border-right:none; border-bottom:1px solid #e7e3da; }
   main { margin-left:0; padding:24px 20px 60px; }
 }
-</style></head>
+</style>
+<script>try{if(localStorage.getItem('textbook-nav')==='closed')document.documentElement.classList.add('nav-collapsed')}catch(e){}</script></head>
 <body>
-<nav class="sidebar"><h1><a href="index.html">재무행정론</a></h1><ul>
+<button class="nav-show" type="button" title="목차 펼치기">☰ 목차</button>
+<nav class="sidebar"><button class="nav-hide" type="button" title="목차 접기">◀ 접기</button><h1><a href="index.html">재무행정론</a></h1><ul>
 <li class="part">1부. 재정의 기초</li>
 <li class="chap"><a href="w01-1.html"><span class="tag t1">1차시</span>1주차 강의의 문: 재정이란 무엇인가</a></li>
 <li class="chap cur"><a href="w01-2.html"><span class="tag t2">2차시</span>1주차 배분의 정치경제: 희소성과 선택</a></li>
@@ -213,4 +224,10 @@ nav.sidebar li.exam { margin-top:12px; margin-left:6px; font-size:.88rem;
 <p><strong>1-6. (서술형 연습)</strong> 거시적 배분과 미시적 배분의 개념을 정의하고, 각각이 결정하는 것이 무엇인지 설명하시오. 이어서 미시적 배분이 세입 측면과 세출 측면에서 각각 어떤 문제(부담의 배분, 우선순위의 배분)로 나타나는지 서술하고, 두 측면이 왜 모두 소득분배와 무관할 수 없는지 논하시오.</p>
 <p><strong>1-7.</strong> 다음 재화들을 표 1-2의 네 유형(사적재, 공유재, 클럽재, 순수공공재)으로 분류하고 그 근거(배제성, 경합성)를 밝히시오. (가) 출퇴근 시간의 무료 도시고속도로 (나) 심야의 한산한 유료고속도로 (다) 국가의 감염병 방역체계 (라) 대학 구내식당의 점심. 분류 결과를 바탕으로, 각 재화의 공급을 시장과 정부 중 어느 쪽에 맡기는 것이 적절한지 논하시오.</p>
 <p><strong>1-8. (찬반 토론)</strong> "예산 배분은 정치적 협상이 아니라 비용편익분석과 같은 과학적 분석에 따라 결정되어야 한다"는 주장에 대해 찬성과 반대의 논거를 각각 제시하시오. 그리즐의 상황론적 접근(재화의 성격, 신규·계속 여부, 분석의 질, 논쟁의 단계)을 활용하여, 분석이 힘을 발휘하기 좋은 조건과 정치적 조정이 불가피한 조건을 구분해 자신의 입장을 정리하시오.</p><div class="pager"><span><a href="w01-1.html">← 1주차 1차시. 강의의 문: 재정이란 무엇인가</a></span><span><a href="w02-1.html">2주차 1차시. 재정의 기능: 배분, 재분배, 안정, 삶의 질 →</a></span></div></main>
+<script>
+(function(){var h=document.documentElement;
+function set(c){h.classList.toggle('nav-collapsed',c);try{localStorage.setItem('textbook-nav',c?'closed':'open')}catch(e){}}
+document.querySelector('.nav-hide').onclick=function(){set(true)};
+document.querySelector('.nav-show').onclick=function(){set(false)};})();
+</script>
 </body></html>

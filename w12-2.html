@@ -49,13 +49,24 @@ nav.sidebar li.exam { margin-top:12px; margin-left:6px; font-size:.88rem;
   padding-top:18px; border-top:1px solid #e7e3da; font-size:.95rem; }
 .pager a { max-width:46%; }
 .toc-part { margin-top:26px; font-size:1.1rem; }
+button.nav-hide, button.nav-show { cursor:pointer; font:inherit; font-size:.8rem; line-height:1;
+  border:1px solid #d5d9de; border-radius:4px; background:#fff; color:#57606a; padding:5px 9px; }
+button.nav-hide:hover, button.nav-show:hover { border-color:var(--accent); color:var(--accent); }
+button.nav-hide { position:absolute; top:10px; right:10px; }
+button.nav-show { display:none; position:fixed; top:10px; left:10px; z-index:20; }
+nav.sidebar h1 { padding-right:66px; }
+html.nav-collapsed nav.sidebar { display:none; }
+html.nav-collapsed button.nav-show { display:inline-block; }
+html.nav-collapsed main { margin-left:auto; margin-right:auto; }
 @media (max-width: 900px) {
   nav.sidebar { position:static; width:auto; border-right:none; border-bottom:1px solid #e7e3da; }
   main { margin-left:0; padding:24px 20px 60px; }
 }
-</style></head>
+</style>
+<script>try{if(localStorage.getItem('textbook-nav')==='closed')document.documentElement.classList.add('nav-collapsed')}catch(e){}</script></head>
 <body>
-<nav class="sidebar"><h1><a href="index.html">재무행정론</a></h1><ul>
+<button class="nav-show" type="button" title="목차 펼치기">☰ 목차</button>
+<nav class="sidebar"><button class="nav-hide" type="button" title="목차 접기">◀ 접기</button><h1><a href="index.html">재무행정론</a></h1><ul>
 <li class="part">1부. 재정의 기초</li>
 <li class="chap"><a href="w01-1.html"><span class="tag t1">1차시</span>1주차 강의의 문: 재정이란 무엇인가</a></li>
 <li class="chap"><a href="w01-2.html"><span class="tag t2">2차시</span>1주차 배분의 정치경제: 희소성과 선택</a></li>
@@ -205,4 +216,10 @@ nav.sidebar li.exam { margin-top:12px; margin-left:6px; font-size:.88rem;
 <p><strong>12-6. (사례 해석형)</strong> 2.2절의 사례 읽기(2025년도 예산안의 지각·감액 처리)를 루빈의 다섯 가지 의사결정 흐름에 하나씩 대응시켜 분석하시오. 이 사례에서 다섯 흐름의 통합을 최종적으로 강제한 요인이 무엇이었는지, 실시간 예산운영 모형의 시간 개념을 사용해 설명하시오.</p>
 <p><strong>12-7. (조문 적용형)</strong> 헌법 제54조의 제출·의결 시한과 준예산 조항을 루빈 모형의 시간 제약 개념과 연결하여 해석하시오. 만약 준예산 제도가 없다면 예산과정 참여자들의 행태와 다섯 흐름의 수렴 방식이 어떻게 달라질지 예상해 보시오.</p>
 <p><strong>12-8. (찬반 토론)</strong> "조직과정 모형은 결국 점증주의를 정교하게 다시 쓴 것에 불과하다"는 주장에 대해, 형식화 단계(크레신의 선례 개념)와 분화 단계(패짓의 순차적 판단이론), 확산 단계(단절균형이론)의 내용을 근거로 찬성과 반대의 논거를 각각 제시하고 자신의 입장을 정하시오.</p><div class="pager"><span><a href="w12-1.html">← 12주차 1차시. 예산이론 (1): 총체주의와 점증주의</a></span><span><a href="w13-1.html">13주차 1차시. 재정개혁론: 예산제도 개혁의 역사 →</a></span></div></main>
+<script>
+(function(){var h=document.documentElement;
+function set(c){h.classList.toggle('nav-collapsed',c);try{localStorage.setItem('textbook-nav',c?'closed':'open')}catch(e){}}
+document.querySelector('.nav-hide').onclick=function(){set(true)};
+document.querySelector('.nav-show').onclick=function(){set(false)};})();
+</script>
 </body></html>

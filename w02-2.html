@@ -49,13 +49,24 @@ nav.sidebar li.exam { margin-top:12px; margin-left:6px; font-size:.88rem;
   padding-top:18px; border-top:1px solid #e7e3da; font-size:.95rem; }
 .pager a { max-width:46%; }
 .toc-part { margin-top:26px; font-size:1.1rem; }
+button.nav-hide, button.nav-show { cursor:pointer; font:inherit; font-size:.8rem; line-height:1;
+  border:1px solid #d5d9de; border-radius:4px; background:#fff; color:#57606a; padding:5px 9px; }
+button.nav-hide:hover, button.nav-show:hover { border-color:var(--accent); color:var(--accent); }
+button.nav-hide { position:absolute; top:10px; right:10px; }
+button.nav-show { display:none; position:fixed; top:10px; left:10px; z-index:20; }
+nav.sidebar h1 { padding-right:66px; }
+html.nav-collapsed nav.sidebar { display:none; }
+html.nav-collapsed button.nav-show { display:inline-block; }
+html.nav-collapsed main { margin-left:auto; margin-right:auto; }
 @media (max-width: 900px) {
   nav.sidebar { position:static; width:auto; border-right:none; border-bottom:1px solid #e7e3da; }
   main { margin-left:0; padding:24px 20px 60px; }
 }
-</style></head>
+</style>
+<script>try{if(localStorage.getItem('textbook-nav')==='closed')document.documentElement.classList.add('nav-collapsed')}catch(e){}</script></head>
 <body>
-<nav class="sidebar"><h1><a href="index.html">재무행정론</a></h1><ul>
+<button class="nav-show" type="button" title="목차 펼치기">☰ 목차</button>
+<nav class="sidebar"><button class="nav-hide" type="button" title="목차 접기">◀ 접기</button><h1><a href="index.html">재무행정론</a></h1><ul>
 <li class="part">1부. 재정의 기초</li>
 <li class="chap"><a href="w01-1.html"><span class="tag t1">1차시</span>1주차 강의의 문: 재정이란 무엇인가</a></li>
 <li class="chap"><a href="w01-2.html"><span class="tag t2">2차시</span>1주차 배분의 정치경제: 희소성과 선택</a></li>
@@ -243,4 +254,10 @@ nav.sidebar li.exam { margin-top:12px; margin-left:6px; font-size:.88rem;
 <p><strong>2-6. (조문 적용형)</strong> 다음 각 상황이 전통적 예산원칙 중 어느 원칙의 예외(또는 위반)에 해당하는지 판정하고 근거 조문을 제시하시오. (1) 정부가 교통시설 관련 특정 세입을 특정 사업에만 쓰는 특별회계를 법률로 설치하였다. (2) 회계연도 개시 전까지 예산안이 의결되지 못하여 정부가 공무원 보수를 전년도 예산에 준하여 집행하였다. (3) 어느 부처가 예상하지 못한 재해 대응을 위해 예비비를 지출하였다. (4) 어느 부처가 세출예산이 정한 목적과 다른 용도에 경비를 사용하였다.</p>
 <p><strong>2-7. (찬반 토론)</strong> "관리재정수지 적자를 GDP 대비 일정 비율 이내로 묶는 재정준칙을 국가재정법에 명문화해야 한다"는 주장에 대해, 총량적 재정규율(쉬크, 국가재정법 제16조 제1호)과 경제안정화 기능(1차시)의 관점에서 찬성과 반대 논거를 각각 제시하고 자신의 입장을 정하시오.</p>
 <p><strong>2-8.</strong> 전통적 예산원칙이 통제 중심의 규범인 데 비해 국가재정법 제16조는 관리·성과·참여 중심의 규범이라는 평가가 있다. 두 규범 체계의 성격 차이를 시대적 배경과 함께 설명하고, "최선을 다하여야 한다"는 문언으로 된 제16조의 원칙들이 실효성을 가지려면 어떤 제도적 장치가 필요한지 성인지 예산서와 온실가스감축인지 예산서를 예로 들어 논하시오.</p><div class="pager"><span><a href="w02-1.html">← 2주차 1차시. 재정의 기능: 배분, 재분배, 안정, 삶의 질</a></span><span><a href="w03-1.html">3주차 1차시. 정부재정의 기본구조: 일반회계와 특별회계 →</a></span></div></main>
+<script>
+(function(){var h=document.documentElement;
+function set(c){h.classList.toggle('nav-collapsed',c);try{localStorage.setItem('textbook-nav',c?'closed':'open')}catch(e){}}
+document.querySelector('.nav-hide').onclick=function(){set(true)};
+document.querySelector('.nav-show').onclick=function(){set(false)};})();
+</script>
 </body></html>
