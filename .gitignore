@@ -3,3 +3,7 @@ __pycache__/
 .DS_Store
 Thumbs.db
 _site/
+
+# Local revision evidence and the pre-publication archive
+/revision_20260917/
+/backup/pre_publish_20260917/

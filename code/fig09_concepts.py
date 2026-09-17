@@ -35,7 +35,7 @@ ax.set_ylim(0, 11.4)
 ax.axis("off")
 
 box(ax, 3.9, 9.5, 6.2, 1.5,
-    "재정준칙 (fiscal rules)\n총량적 재정지표에 대한\n법적 구속력 있는 수량적 제한",
+    "재정준칙 (fiscal rules)\n총량적 재정지표에 대한\n지속적인 수량적 제한",
     fc="#f7f7fc", ec="#5b6ee1", weight="bold")
 
 cols = [
@@ -49,7 +49,7 @@ cols = [
      "총지출 한도, 지출\n증가율 상한 설정\n예: 스웨덴 3년 단위\n지출상한",
      "#faf8fc", "#7a5fa8"),
     ("수입준칙\n(revenue rule)",
-     "세입 감소 입법 시 대응\n재원 확보 의무화\n예: 미국 페이고(PAYGO)",
+     "세입 총량의 상한·하한\n또는 초과 세수의\n사용 방식 규율",
      "#fdf9f4", "#c77b2f"),
 ]
 for i, (t1, t2, fc, ec) in enumerate(cols):
