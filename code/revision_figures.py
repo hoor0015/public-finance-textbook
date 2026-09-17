@@ -137,7 +137,7 @@ for x,unit,activities in items:
     box(ax,x,1.7,3.2,1.5,activities,GREEN,'#f2f8f5')
     arrow(ax,6,6.25,x+1.6,5.3)
     arrow(ax,x+1.6,3.95,x+1.6,3.25)
-label(ax,6,.65,'학습용 묶음: 공식 예산과목이나 실제 조직 배치를 뜻하지 않음',15)
+label(ax,6,.65,'예시',15)
 save(fig,'fig05_program_example.png','05-2','06',[18],'adapted_teaching_example')
 
 # PPT 08, slide 4. Explicitly non-empirical cycle, no fabricated observed GDP.
