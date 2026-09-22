@@ -87,6 +87,62 @@ fig.savefig(FIG / "fig04_balances.png", dpi=150, bbox_inches="tight")
 plt.close(fig)
 
 # ---------------------------------------------------------------- 그림 4-3
+# 지방교육재정의 재원 흐름 (2026년 기준)
+fig, ax = plt.subplots(figsize=(14, 7.6))
+ax.set_xlim(0, 18)
+ax.set_ylim(-0.7, 11)
+ax.axis("off")
+
+# 왼쪽: 재원의 출처
+box(ax, 0.4, 8.3, 3.4, 1.8, "내국세\n(목적세·종합부동산세 등 제외)", fc="#f5f9fd", ec="#2f6fb0")
+box(ax, 0.4, 5.6, 3.4, 1.8, "교육세\n(국세 목적세)", fc="#f5f9fd", ec="#2f6fb0")
+box(ax, 0.4, 2.0, 3.4, 1.8, "시·도 일반회계\n(지방세)", fc="#fdf9f4", ec="#c77b2f")
+
+# 가운데: 이전 경로
+box(ax, 5.4, 8.3, 4.8, 1.8, "지방교육재정교부금\n보통교부금 97 : 특별교부금 3\n(2024-2026년 한시 96.2 : 3.8)",
+    fc="#f5f9fd", ec="#2f6fb0", weight="bold")
+box(ax, 5.4, 5.8, 4.8, 1.4, "영유아특별회계\n(2026년 신설, 2030년까지)", fc="#faf8fc", ec="#7a5fa8")
+box(ax, 5.4, 3.9, 4.8, 1.4, "고등·평생교육지원특별회계\n(2023년 신설, 2030년까지 연장)", fc="white", ec="#999999")
+box(ax, 5.4, 1.5, 4.8, 2.0, "법정전입금\n지방교육세 전액 · 담배소비세 45%\n시·도세 10%(서울) · 5%(광역시·경기) · 3.6%(도)",
+    fc="#fdf9f4", ec="#c77b2f")
+box(ax, 5.4, -0.3, 4.8, 1.2, "자체수입(사용료·수수료 등) · 지방교육채", fc="white", ec="#999999")
+
+# 오른쪽: 교육비특별회계와 학교
+box(ax, 11.4, 5.2, 3.4, 4.2, "시·도교육청\n교육비특별회계\n\n교육감 편성\n시·도의회 심의",
+    fc="#f4fbf6", ec="#2f8f4e", weight="bold")
+box(ax, 15.5, 5.0, 2.3, 1.8, "유·초·중등\n학교", fc="#f4fbf6", ec="#2f8f4e")
+arrow(ax, 14.9, 5.9, 15.4, 5.9, color="#2f8f4e", lw=2.0)
+
+# 화살표: 내국세 → 교부금 → 교육비특별회계
+arrow(ax, 3.9, 9.2, 5.3, 9.2, color="#2f6fb0", lw=2.0)
+ax.text(4.6, 9.55, "× 20.79%", ha="center", fontsize=10, color="#2f6fb0", fontweight="bold")
+arrow(ax, 10.3, 9.2, 11.3, 8.6, color="#2f6fb0", lw=2.0)
+
+# 화살표: 교육세의 세 갈래
+arrow(ax, 3.9, 6.9, 5.3, 8.5, color="#2f6fb0", lw=1.5)
+ax.text(4.1, 7.95, "나머지의 40%", ha="left", fontsize=9, color="#2f6fb0")
+arrow(ax, 3.9, 6.5, 5.3, 6.5, color="#7a5fa8", lw=1.5)
+ax.text(4.6, 6.75, "나머지의 60%", ha="center", fontsize=9, color="#7a5fa8")
+arrow(ax, 3.9, 6.1, 5.3, 4.7, color="#777777", lw=1.5)
+ax.text(3.85, 4.9, "금융·보험업분\n전액", ha="left", va="top", fontsize=9, color="#555")
+arrow(ax, 10.3, 6.5, 11.3, 6.5, color="#7a5fa8", lw=1.5)
+ax.text(10.8, 6.95, "유아 지원금", ha="center", va="bottom", fontsize=8.5, color="#7a5fa8")
+arrow(ax, 10.3, 4.6, 11.3, 4.6, color="#777777", lw=1.3, ls="--")
+ax.text(11.9, 4.25, "대학·평생교육 지원\n(교육청 밖으로 나간다)", ha="left", va="center", fontsize=8.5, color="#555")
+
+# 화살표: 지방세 → 전입금 → 교육비특별회계, 자체수입 → 교육비특별회계
+arrow(ax, 3.9, 2.9, 5.3, 2.6, color="#c77b2f", lw=2.0)
+arrow(ax, 10.3, 2.9, 11.3, 5.4, color="#c77b2f", lw=2.0)
+ax.text(7.8, 1.2, "비법정전입금(임의 보조)은 별도", ha="center", fontsize=8.5, color="#c77b2f")
+arrow(ax, 10.3, 0.5, 11.5, 5.15, color="#999999", lw=1.3)
+
+ax.text(9.0, 10.6, "교부금과 전입금은 보내는 쪽의 세출이자 교육청의 세입이다.  통합재정은 이런 이전거래를 상쇄하고 정부 부문 전체의 교육 지출만 남긴다.",
+        ha="center", fontsize=10, color="#333")
+ax.set_title("지방교육재정의 재원 흐름 (2026년 기준)", fontsize=14, pad=12)
+fig.savefig(FIG / "fig04_edu_finance.png", dpi=150, bbox_inches="tight")
+plt.close(fig)
+
+# ---------------------------------------------------------------- 그림 4-4
 # 총계에서 총지출까지: 재정 규모 지표의 관계 (세로 폭포)
 fig, ax = plt.subplots(figsize=(11, 7.2))
 ax.set_xlim(0, 12)
@@ -116,7 +172,7 @@ ax.set_title("총계에서 총지출까지: 재정 규모 지표의 관계", fon
 fig.savefig(FIG / "fig04_expenditure.png", dpi=150, bbox_inches="tight")
 plt.close(fig)
 
-# ---------------------------------------------------------------- 그림 4-4
+# ---------------------------------------------------------------- 그림 4-6
 # 공공부문의 범위와 부채 지표: D1 · D2 · D3 (계단식)
 fig, ax = plt.subplots(figsize=(12.5, 6.8))
 ax.set_xlim(0, 16)
